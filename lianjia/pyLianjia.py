@@ -33,7 +33,7 @@ def getUrls(city,region,num):
 	return urllist
 
 #获取url页面内容,并保存
-def getData(city,urllist):
+def getData(city,district,urllist):
 	col = db[city]
 	for url in urllist:
 		time.sleep(3)
@@ -52,7 +52,7 @@ def getData(city,urllist):
 				followInfo = item.find("div.info.clear > div.followInfo").text().split("/")
 				frequence = followInfo[1] #带看次数
 				house={
-					"region":region['name'] ,
+					"region":district ,
 					"title": title,
 					"totalPrice":price ,
 					"unitprice":unitprice ,
@@ -68,15 +68,11 @@ def getData(city,urllist):
 			continue
 
 
-if __name__ == '__main__':
+def saveData(city,num):
 	col = db['districts']
-	num = 50
-	city = input("请输入城市首字母")
 	regions = getRegions(city)
 	for region in regions:
 		urls = getUrls(city,region['dm'],num)
-		getData(city,urls)
+		getData(city,region['name'],urls)
 	db.close
-
-
 
