@@ -14,3 +14,4 @@ city为城市的首字母，num为该城市每个城区爬去的页数
   复制「春节群发短信自动回复.py」到本地，然后双击运行即可。
   或者下载sendNewyearMsg.exe，双击运行也可以啦~~
 ## 作者：wechat raymonYuan
+##  公众号： 进击的金融Coder
